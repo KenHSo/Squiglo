@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35707.178 d17.12
+VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Squiglo", "Squiglo\Squiglo.csproj", "{BDBCB43C-77EC-436D-851A-ADD0B4C5FBAC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Squiglo.API", "Squiglo.API\Squiglo.API.csproj", "{BDBCB43C-77EC-436D-851A-ADD0B4C5FBAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Squiglo.Client", "Squiglo.Client\Squiglo.Client.csproj", "{A612D404-8529-4202-B6DC-C067BDBD4DD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Squiglo.Shared", "Squiglo.Shared\Squiglo.Shared.csproj", "{199343EC-CB7A-4E1E-B0E0-A42B97594B49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{BDBCB43C-77EC-436D-851A-ADD0B4C5FBAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDBCB43C-77EC-436D-851A-ADD0B4C5FBAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BDBCB43C-77EC-436D-851A-ADD0B4C5FBAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A612D404-8529-4202-B6DC-C067BDBD4DD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A612D404-8529-4202-B6DC-C067BDBD4DD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A612D404-8529-4202-B6DC-C067BDBD4DD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A612D404-8529-4202-B6DC-C067BDBD4DD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{199343EC-CB7A-4E1E-B0E0-A42B97594B49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{199343EC-CB7A-4E1E-B0E0-A42B97594B49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{199343EC-CB7A-4E1E-B0E0-A42B97594B49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{199343EC-CB7A-4E1E-B0E0-A42B97594B49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

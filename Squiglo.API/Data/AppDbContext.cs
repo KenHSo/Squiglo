@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Squiglo.Models;
+using Squiglo.API.Models;
 
-namespace Squiglo.Data;
+namespace Squiglo.API.Data;
 
 public class AppDbContext : DbContext
 {

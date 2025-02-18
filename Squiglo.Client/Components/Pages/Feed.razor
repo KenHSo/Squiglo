@@ -1,0 +1,66 @@
+﻿@page "/feed"
+@inject IHttpClientFactory HttpClientFactory
+@using Squiglo.Shared.Models
+
+<h3>Squiglo - Live Feed</h3>
+
+<textarea @bind="NewPostContent" placeholder="What's on your mind?" maxlength="250"></textarea>
+<button onclick="SubmitPost">Post</button>
+
+@if (IsLoading)
+{
+    <p>Loading posts...</p>
+}
+else if (Posts.Count == 0)
+{
+    <p>No posts yet. Be the first!</p>
+}
+else
+{
+    @foreach (var post in Posts)
+    {
+        <div>
+            <strong>@post.Content</strong> <br />
+            <small>@post.CreatedAt.ToLocalTime()</small>
+            <hr />
+        </div>
+    }
+}
+
+@code {
+    private string NewPostContent = string.Empty;
+    private List<PostDTO> Posts = new();
+    private bool IsLoading = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadPosts();
+    }
+
+    private async Task LoadPosts()
+    {
+        IsLoading = true;
+        var client = HttpClientFactory.CreateClient("SquigloAPI");
+        Posts = await client.GetFromJsonAsync<List<PostDTO>>("/api/posts") ?? new List<PostDTO>();
+        IsLoading = false;
+    }
+
+    private async Task SubmitPost()
+    {
+        if (string.IsNullOrWhiteSpace(NewPostContent)) return;
+
+        var client = HttpClientFactory.CreateClient("SquigloAPI");
+        var newPost = new PostDTO
+            {
+                Content = NewPostContent,
+                CreatedAt = DateTime.UtcNow
+            };
+
+        var response = await client.PostAsJsonAsync("/posts", newPost);
+        if (response.IsSuccessStatusCode)
+        {
+            NewPostContent = string.Empty;
+            await LoadPosts(); // Refresh the feed
+        }
+    }
+}
