@@ -20,7 +20,7 @@ public static class PostMapper
         return new Post
         {
             Content = postDTO.Content,
-            CreatedAt = DateTime.Now
+            CreatedAt = DateTime.UtcNow
         };
     }
 }
