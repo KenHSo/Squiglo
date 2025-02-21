@@ -3,6 +3,8 @@
 @rendermode InteractiveServer
 @using Squiglo.Shared.Models
 
+<PageTitle>Feed - Squiglo</PageTitle>
+
 <h3>Squiglo - Live Feed</h3>
 
 <textarea @bind="NewPostContent" placeholder="What's on your mind?" maxlength="250"></textarea>
@@ -35,15 +37,19 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        await LoadPosts();
+        // Allow the UI to render first, then fetch posts in the background
+        _ = LoadPosts();
+
+        //await LoadPosts();
     }
 
     private async Task LoadPosts()
     {
-        IsLoading = true;
         var client = HttpClientFactory.CreateClient("SquigloAPI");
         Posts = await client.GetFromJsonAsync<List<PostDTO>>("/api/posts") ?? new List<PostDTO>();
-        IsLoading = false;
+
+        IsLoading = false; // Make sure loading state is updated
+        StateHasChanged(); // Force UI update
     }
 
     private async Task SubmitPost()
