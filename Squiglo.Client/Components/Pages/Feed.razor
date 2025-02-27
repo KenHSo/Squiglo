@@ -7,28 +7,38 @@
 
 <h3>Squiglo - Live Feed</h3>
 
-<textarea @bind="NewPostContent" placeholder="What's on your mind?" maxlength="250"></textarea>
-<button @onclick="SubmitPost">Post</button>
+<div class="container">
+    <div class="feed">
+        @if (IsLoading)
+        {
+            <p>Loading posts...</p>
+        }
+        else if (Posts.Count == 0)
+        {
+            <p>No posts yet. Be the first!</p>
+        }
+        else
+        {
+            @foreach (var post in Posts)
+            {
+                <div class="post">
+                    <strong>@post.Content</strong>
+                    <br />
+                    <small>@post.CreatedAt.ToLocalTime()</small>
+                    <hr />
+                </div>
+            }
+        }
+    </div>
+</div>
 
-@if (IsLoading)
-{
-    <p>Loading posts...</p>
-}
-else if (Posts.Count == 0)
-{
-    <p>No posts yet. Be the first!</p>
-}
-else
-{
-    @foreach (var post in Posts)
-    {
-        <div>
-            <strong>@post.Content</strong> <br />
-            <small>@post.CreatedAt.ToLocalTime()</small>
-            <hr />
-        </div>
-    }
-}
+<!-- Fixed post input box -->
+<div class="post-box">
+    <textarea @bind="NewPostContent" class="form-control" placeholder="What's on your mind?" maxlength="250"></textarea>
+    <button class="btn btn-primary mt-2 w-50" @onclick="SubmitPost">Post</button>
+</div>
+
+
 
 @code {
     private string NewPostContent = string.Empty;

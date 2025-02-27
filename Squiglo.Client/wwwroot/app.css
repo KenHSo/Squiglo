@@ -49,3 +49,27 @@ h1:focus {
 .darker-border-checkbox.form-check-input {
     border-color: #929292;
 }
+
+
+.navbar-logo {
+    height: 40px; /* Adjust as needed */
+    width: auto;   
+}
+
+
+.post-box {
+    /* position: fixed; */
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 800px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+textarea.form-control {
+    height: 150px;
+    resize: none;
+}
