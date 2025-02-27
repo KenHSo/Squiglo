@@ -1,23 +1,33 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
+<div class="container-lg">
+    <div class="row">
+        <!-- Left Sidebar -->
+        <aside class="col-md-3 col-lg-2 sidebar left-sidebar">
+            <NavMenu />
+        </aside>
+
+        <!-- Center Content (Post Feed) -->
+        <main class="col-md-6 col-lg-8 content">
+            <section class="post-feed px-4">
+                @Body
+            </section>
+        </main>
+
+        <!-- Right Sidebar (Shrinks Before Hiding) -->
+        <aside class="col-md-3 col-lg-2 sidebar right-sidebar">
+            <p>Search</p>
+            <p>Trending</p>
+            <p>About</p>
+        </aside>
     </div>
-
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
-
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
 </div>
+
 
 <div id="blazor-error-ui">
     An unhandled error has occurred.
     <a href="" class="reload">Reload</a>
     <a class="dismiss">🗙</a>
 </div>
+
+

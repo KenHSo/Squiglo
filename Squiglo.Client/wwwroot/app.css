@@ -13,7 +13,7 @@ a, .btn-link {
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 .content {
@@ -51,25 +51,114 @@ h1:focus {
 }
 
 
+
+/****************/
+/*Overall Layout*/
+/****************/
+
 .navbar-logo {
     height: 40px; /* Adjust as needed */
-    width: auto;   
+    width: auto;
+}
+
+/* Make sure the layout doesn’t stretch too wide */
+.container-lg {
+    max-width: 1200px; /* Keep everything centered */
+}
+
+/* Sidebars */
+.sidebar {
+    background: #1a1a1a;
+    color: white;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* Center Content */
+.content {
+    background: #222;
+    padding: 20px;
+    min-height: 100vh;
 }
 
 
-.post-box {
-    position: fixed;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+
+/***************/
+/*Right Sidebar*/
+/***************/
+
+/* Right Sidebar Shrinks Before Disappearing */
+@media (max-width: 1200px) { /* Shrink it at xl (1200px) */
+    .right-sidebar {
+        flex: 0 0 10%; /* Reduce width */
+        max-width: 120px;
+    }
+}
+
+@media (max-width: 768px) { /* Fully hide at md (768px) */
+    .right-sidebar {
+        display: none !important;
+    }
+}
+
+
+
+
+/***************/
+/*Post and Feed*/
+/***************/
+
+
+/* Post Feed */
+.post-feed {
     width: 100%;
-    max-width: 800px;
-    background: rgba(0, 0, 0, 0.2);
-    padding: 15px;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    background: #282828;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Post Feed (Ensures space for chatbox) */
+.post-feed {
+    width: 100%;
+    background: #282828;
+    padding: 20px;
+    border-radius: 10px;
+    min-height: 400px; /* Ensures posts section isn't too small */
+}
+
+
+/* Post Box*/
+@media (max-width: 768px) {
+    .post-box {
+        width: 90%; /* Shrink it on smaller screens */
+        max-width: 500px;
+    }
 }
 
 textarea.form-control {
     height: 150px;
     resize: none;
+}
+
+
+
+
+
+
+/*********************/
+/*Profile Icon & Text*/
+/*********************/
+
+
+/*Nav Menu Profile icon and text - Link to bootstrap icons in App.Razor*/
+.nav-profile-icon {
+    font-size: 1.3rem; /* Matches text height */
+    line-height: 1; /* Fixes vertical offset */
+    display: flex; /* Uses flexbox for alignment */
+    align-items: center; /* Ensures perfect vertical alignment */
+    justify-content: center; /* Keeps it centered */
+}
+
+.nav-profile-text {
+    font-size: 0.95rem; /* Ensures text is correctly sized */
 }

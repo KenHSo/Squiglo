@@ -3,9 +3,7 @@
 @rendermode InteractiveServer
 @using Squiglo.Shared.Models
 
-<PageTitle>Feed - Squiglo</PageTitle>
-
-<h3>Squiglo - Live Feed</h3>
+<PageTitle>Home - Squiglo</PageTitle>
 
 <div class="container">
     <div class="feed">
@@ -32,7 +30,7 @@
     </div>
 </div>
 
-<!-- Fixed post input box -->
+<!-- post input box -->
 <div class="post-box">
     <textarea @bind="NewPostContent" class="form-control" placeholder="What's on your mind?" maxlength="250"></textarea>
     <button class="btn btn-primary mt-2 w-50" @onclick="SubmitPost">Post</button>
