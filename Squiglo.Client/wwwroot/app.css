@@ -50,6 +50,10 @@ h1:focus {
     border-color: #929292;
 }
 
+/* soft off-white for text: #DCE0E6*/
+/* grey less cold : #E3E6EB*/
+/* muted for sec color: #CCCCCC*/
+
 
 
 /****************/
@@ -68,16 +72,14 @@ h1:focus {
 
 /* Unified Background */
 body {
-    background: #2A2D34; /* Same for feed and sidebars */
+    background: #1E2A38; /* Same for feed and sidebars */
 }
 
 /* Sidebars */
 .sidebar {
     background: transparent !important; /* Matches feed */
-    border-right: 5px solid rgba(255,255,255,0.1); /* Thin border on right */
     color: white;
     padding: 20px;
-    
 }
 
 /* Center Content */
@@ -89,9 +91,9 @@ body {
 
 
 
-/***************/
-/*Right Sidebar*/
-/***************/
+/**********/
+/*Sidebars*/
+/**********/
 
 /* Right Sidebar Shrinks Before Disappearing */
 @media (max-width: 1200px) { /* Shrink it at xl (1200px) */
@@ -108,13 +110,18 @@ body {
 }
 
 .right-sidebar {
-    border-left: 5px solid rgba(255,255,255,0.1); /* Thin left border */
+    border-left: 2px solid rgba(255,255,255,0.1); /* Thin left border */
+}
+
+.left-sidebar {
+    border-right: 2px solid rgba(255,255,255,0.1); /* Thin left border */
 }
 
 
-/***************/
-/*Post and Feed*/
-/***************/
+
+/*******************/
+/*Post Feed and box*/
+/*******************/
 
 /* Post Feed (Ensures space for chatbox) */
 .post-feed {
@@ -137,14 +144,27 @@ body {
 textarea.form-control {
     height: 150px;
     resize: none;
+    background-color: #2A2D34 !important;
+    color: #ffffff !important;
+    border: 1px solid #555 !important;
 }
+
+
+/**************************/
+/*Post details and content*/
+/**************************/
 
 /*break long posts*/
 .post {
+    color: #E3E6EB;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    line-height: 1.6; /* Improves readability */
     word-break: break-word;
     overflow-wrap: anywhere;
     white-space: normal;
     max-width: 100%;
+    padding-bottom: 10px;
 }
 
     .post-content, .post strong {
@@ -152,13 +172,35 @@ textarea.form-control {
         overflow-wrap: anywhere;
         max-width: 100%;
     }
+    .contentOnly {
+            font-size: 0.9rem;
+            line-height: 1.5;
+    }
+
+.post small strong {
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.separator {
+    margin-left: 6px; /* Adjust spacing on both sides */
+    color: #A0A0A0; /* Softer color for the separator */
+    font-weight: 600; /* Slightly bold to make it stand out */
+}
+
+.postedTime {
+    color: #CCCCCC;
+    font-size: 0.85rem;
+
+}
 
 
 
 
-/*********************/
-/*Profile Icon & Text*/
-/*********************/
+
+/******************************/
+/*Nav Menu Profile Icon & Text*/
+/******************************/
 
 /*Nav Menu Profile icon and text - Link to bootstrap icons in App.Razor*/
 .nav-profile-icon {
@@ -172,3 +214,52 @@ textarea.form-control {
 .nav-profile-text {
     font-size: 0.95rem; /* Ensures text is correctly sized */
 }
+
+
+
+
+
+/***********/
+/*Copywrite*/
+/***********/
+
+.copyright-container {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.copyright {
+    font-size: 0.85rem; /* Adjust for smaller text */
+    text-align: left; /* Center align */
+    color: #aaa; /* Light grey for a subtle look */
+    margin: 0; /* Remove default margins */
+}
+
+
+
+/*******************/
+/*Logged in Profile*/
+/*******************/
+
+.profile-container {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.profile-pic {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-name {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 5px;
+}
+

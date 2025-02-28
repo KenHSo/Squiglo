@@ -20,9 +20,15 @@
             @foreach (var post in Posts)
             {
                 <div class="post">
-                    <strong>@post.Content</strong>
+                    <small>
+                        <strong>UsernamePlaceholder</strong>
+                        <span class="separator">·</span>
+                        <span class="postedTime">@GetTimeAgo(post.CreatedAt)</span>
+                        
+                    </small>
+                    
                     <br />
-                    <small>@post.CreatedAt.ToLocalTime()</small>
+                    <div class="contentOnly">@post.Content</div>
                     <hr />
                 </div>
             }
@@ -78,4 +84,24 @@
             await LoadPosts(); // Refresh the feed
         }
     }
+
+    private string GetTimeAgo(DateTime createdAt)
+    {
+        TimeSpan timeSince = DateTime.UtcNow - createdAt;
+        DateTime localTime = createdAt.ToLocalTime();
+
+        if (timeSince.TotalSeconds < 60)
+            return $"{timeSince.Seconds}s";
+        else if (timeSince.TotalMinutes < 60)
+            return $"{timeSince.Minutes}m";
+        else if (timeSince.TotalHours < 24)
+            return $"{timeSince.Hours}h";
+        else if (timeSince.TotalDays < 7)
+            return $"{timeSince.Days}d";
+        else if (localTime.Year == DateTime.Now.Year)
+            return localTime.ToString("MMM d"); // Show only month and day if it's the same year
+        else
+            return localTime.ToString("MMM d, yy"); // Show full date if it's from a previous year
+    }
+
 }
