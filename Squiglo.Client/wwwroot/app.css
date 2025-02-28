@@ -66,17 +66,23 @@ h1:focus {
     max-width: 1200px; /* Keep everything centered */
 }
 
+/* Unified Background */
+body {
+    background: #2A2D34; /* Same for feed and sidebars */
+}
+
 /* Sidebars */
 .sidebar {
-    background: #1a1a1a;
+    background: transparent !important; /* Matches feed */
+    border-right: 5px solid rgba(255,255,255,0.1); /* Thin border on right */
     color: white;
     padding: 20px;
-    min-height: 100vh;
+    
 }
 
 /* Center Content */
 .content {
-    background: #222;
+    background: transparent; /* Matches feed */
     padding: 20px;
     min-height: 100vh;
 }
@@ -101,26 +107,19 @@ h1:focus {
     }
 }
 
-
+.right-sidebar {
+    border-left: 5px solid rgba(255,255,255,0.1); /* Thin left border */
+}
 
 
 /***************/
 /*Post and Feed*/
 /***************/
 
-
-/* Post Feed */
-.post-feed {
-    width: 100%;
-    background: #282828;
-    padding: 20px;
-    border-radius: 10px;
-}
-
 /* Post Feed (Ensures space for chatbox) */
 .post-feed {
     width: 100%;
-    background: #282828;
+    background: transparent; /* Matches feed */
     padding: 20px;
     border-radius: 10px;
     min-height: 400px; /* Ensures posts section isn't too small */
@@ -148,7 +147,6 @@ textarea.form-control {
 /*********************/
 /*Profile Icon & Text*/
 /*********************/
-
 
 /*Nav Menu Profile icon and text - Link to bootstrap icons in App.Razor*/
 .nav-profile-icon {
