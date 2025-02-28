@@ -139,7 +139,19 @@ textarea.form-control {
     resize: none;
 }
 
+/*break long posts*/
+.post {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    white-space: normal;
+    max-width: 100%;
+}
 
+    .post-content, .post strong {
+        word-break: break-word;
+        overflow-wrap: anywhere;
+        max-width: 100%;
+    }
 
 
 
