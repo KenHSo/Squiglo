@@ -19,4 +19,4 @@ No longer under active development, but kept as a portfolio project.
 - Entity Framework Core + SQLite  
 
 ## License
-MIT License © 2025 Kenneth Sørensen
+MIT License © 2025 Kenneth Haagen Sørensen
